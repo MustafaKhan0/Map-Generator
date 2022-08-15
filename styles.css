@@ -1,0 +1,81 @@
+/* Font */
+*, *::before *::after {
+    box-sizing: border-box;
+    font-family: 'Courier New', Courier;
+    font-weight: normal;
+}
+
+/* Creates gradient background */
+body {
+    padding: 0;
+    margin: 0;
+    background: linear-gradient(to right, #ba1a1a, #5f1aba);
+}
+
+.MapMaker {
+    display: flex;
+    
+    justify-content: center;
+    height: 100vh;
+    position: relative;
+}
+
+.output {
+    background-color: grey;
+    height: 200px;
+    width: 400px;
+    display: flex;
+    padding: 5px;
+    word-wrap: break-word;
+    overflow: scroll;
+    position: absolute;
+    bottom: 25%;
+}
+
+.maplist {
+    color: white
+}
+
+.mapNumber {
+    font-size: 24px;
+    background-color: #5f1aba;
+    height: 50px;
+    width: 62px;
+    position: absolute;
+    top: 39%;
+    right: 59.75%;
+}
+
+.generate {
+    font-size: 20px;
+    background-color: blue;
+    height: 35px;
+    width: 100px;
+    position: absolute;
+    top: 40%;
+    right: 35.5%;
+    cursor: pointer;
+}
+
+.copy {
+    font-size: 20px;
+    background-color: blue;
+    height: 35px;
+    width: 60px;
+    position: absolute;
+    top: 40%;
+    right: 48%;
+    cursor: pointer;
+}
+
+
+.select {
+    font-size: 15px;
+    background-color: white;
+    height: 35px;
+    width: 100px;
+    position: absolute;
+    top: 32.5%;
+    right: 46.5%;
+    cursor: pointer;
+}
