@@ -8,7 +8,7 @@ class MapMaker {
         mapNumber = document.getElementById("p2").value
         type = document.getElementById("p3").value
         if (mapNumber >= 200) {
-            window.alert("Please choose a smaller value")
+            window.alert("Please choose a lower map count")
             return false
         }
     }
@@ -176,11 +176,11 @@ var count
 var type = 0
 var check
 const gameModes = ["SZ", "TC", "CB", "RM"]
-const SZMaps = ["The Reef", "Mussleforge Fitness", "Humpback Pump Track", "Inkblot Art Academy", "Sturgeon Shipyard", "Manta Maria", "Snapper Canal", "MakoMart", "Shellendorf Institute", "Piranha Pit", "Wahoo World", "New Albacore Hotel", "Ancho-V Games", "Skipper Pavilion"]
-const TCMaps = ["The Reef", "Starfish Mainstage", "Inkblot Art Academy", "Sturgeon Shipyard", "Manta Maria", "MakoMart", "Ancho-V Games"]
-const RMMaps = ["The Reef", "Mussleforge Fitness", "Starfish Mainstage", "Humpback Pump Track", "Inkblot Art Academy", "Sturgeon Shipyard", "Manta Maria", "Snapper Canal", "Blackbelly Skatepark", "MakoMart", "Ancho-V Games"]
-const CBMaps = ["The Reef", "Humpback Pump Track", "Inkblot Art Academy", "Sturgeon Shipyard", "Snapper Canal", "MakoMart", "Piranha Pit", "Ancho-V Games"]
-const maps = ["The Reef", "Musselforge Fitness", "Starfish Mainstage", "Humpback Pump Track", "Inkblot Art Academy", "Sturgeon Shipyard", "Moray Towers", "Port Mackerel", "Manta Maria", "Kelp Dome", "Snapper Canal", "Blackbelly Skatepark", "Makomart", "Piranha Pit", ]
+var SZMaps = ["The Reef", "Mussleforge Fitness", "Humpback Pump Track", "Inkblot Art Academy", "Sturgeon Shipyard", "Manta Maria", "Snapper Canal", "MakoMart", "Shellendorf Institute", "Piranha Pit", "Wahoo World", "New Albacore Hotel", "Ancho-V Games", "Skipper Pavilion"]
+var TCMaps = ["The Reef", "Starfish Mainstage", "Inkblot Art Academy", "Sturgeon Shipyard", "Manta Maria", "MakoMart", "Ancho-V Games"]
+var RMMaps = ["The Reef", "Mussleforge Fitness", "Starfish Mainstage", "Humpback Pump Track", "Inkblot Art Academy", "Sturgeon Shipyard", "Manta Maria", "Snapper Canal", "Blackbelly Skatepark", "MakoMart", "Ancho-V Games"]
+var CBMaps = ["The Reef", "Humpback Pump Track", "Inkblot Art Academy", "Sturgeon Shipyard", "Snapper Canal", "MakoMart", "Piranha Pit", "Ancho-V Games"]
+const maps = ["The Reef", "Musselforge Fitness", "Starfish Mainstage", "Humpback Pump Track", "Inkblot Art Academy", "Sturgeon Shipyard", "Moray Towers", "Port Mackerel", "Manta Maria", "Kelp Dome", "Snapper Canal", "Blackbelly Skatepark", "Makomart", "Walleye Warehouse", "Shellendorf Institute", "Arrowana Mall", "Goby Arena", "Piranha Pit", "Camp Triggerfish", "Wahoo World", "New Albacore Hotel", "Ancho-V Games", "Skipper Pavilion"]
 var maps = [""]
 var modes = [""] 
 var map = 0

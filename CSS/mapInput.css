@@ -20,3 +20,8 @@ body {
     position: relative;
 
 }
+
+.update {
+    display: flex;
+    justify-content: center;
+}
