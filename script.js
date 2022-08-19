@@ -180,7 +180,6 @@ const SZMaps = ["The Reef", "Mussleforge Fitness", "Humpback Pump Track", "Inkbl
 const TCMaps = ["The Reef", "Starfish Mainstage", "Inkblot Art Academy", "Sturgeon Shipyard", "Manta Maria", "MakoMart", "Ancho-V Games"]
 const RMMaps = ["The Reef", "Mussleforge Fitness", "Starfish Mainstage", "Humpback Pump Track", "Inkblot Art Academy", "Sturgeon Shipyard", "Manta Maria", "Snapper Canal", "Blackbelly Skatepark", "MakoMart", "Ancho-V Games"]
 const CBMaps = ["The Reef", "Humpback Pump Track", "Inkblot Art Academy", "Sturgeon Shipyard", "Snapper Canal", "MakoMart", "Piranha Pit", "Ancho-V Games"]
-const maps = ["The Reef", "Musselforge Fitness", "Starfish Mainstage", "Humpback Pump Track", "Inkblot Art Academy", "Sturgeon Shipyard", "Moray Towers", "Port Mackerel", "Manta Maria", "Kelp Dome", "Snapper Canal", "Blackbelly Skatepark", "Makomart", "Piranha Pit", ]
 var maps = [""]
 var modes = [""] 
 var map = 0
