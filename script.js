@@ -7,8 +7,13 @@ class MapMaker {
     dataGrab() {
         mapNumber = document.getElementById("p2").value
         type = document.getElementById("p3").value
-        if (mapNumber >= 200) {
+        if (mapNumber >= 100) {
             window.alert("Please choose a lower map count")
+            return false
+        }
+
+        if (Number.isInteger(mapNumber) || mapNumber <= 0) {
+            window.alert("Please choose a real number of maps")
             return false
         }
     }
@@ -24,14 +29,15 @@ class MapMaker {
         rem = undefined
         count = undefined
         check = undefined
+        mapPool = undefined
         this.maplistTextElement = ''
     }
 
     generateMaps(mapnumber) {
         for (let i = 0; i < mapnumber; i++) {
-            mapmaker.pushMap(map, i, mapnumber)
+            mapmaker.pushMap(map, i, mapnumber, mapPool)
         }
-    }   
+    }
 
     checkMap (mapnumber, map, modeList, i) {
         if (mapnumber >= modeList.length) {
@@ -51,39 +57,52 @@ class MapMaker {
         return false
     }
 
-    pushMap(map, i, mapnumber) {
+    pushMap(map, i, mapnumber, mapOption) {
         map = undefined
+        if (mapOption == "selected") {
+            var SZPool = SZUpdate
+            var TCPool = TCUpdate
+            var RMPool = RMUpdate
+            var CBPool = CBUpdate
+
+        }
+        else {
+            var SZPool = defSZMaps
+            var TCPool = defTCMaps
+            var RMPool = defRMMaps
+            var CBPool = defCBMaps
+        }
         if (modes[i] == "SZ") {
-            map = Math.floor(Math.random() * SZMaps.length)
+            map = Math.floor(Math.random() * SZPool.length)
             
-            while (mapmaker.checkMap (mapnumber, map, SZMaps, i)) {
-                map = Math.floor(Math.random() * SZMaps.length)
+            while (mapmaker.checkMap (mapnumber, map, SZPool, i)) {
+                map = Math.floor(Math.random() * SZPool.length)
             }
-            maps.push(SZMaps[map])
+            maps.push(SZPool[map])
         }
         if (modes[i] == "TC") {
-            map = Math.floor(Math.random() * TCMaps.length)
+            map = Math.floor(Math.random() * TCPool.length)
 
-            while (mapmaker.checkMap (mapnumber, map, TCMaps, i)) {
-                map = Math.floor(Math.random() * TCMaps.length)
+            while (mapmaker.checkMap (mapnumber, map, TCPool, i)) {
+                map = Math.floor(Math.random() * TCPool.length)
             }
-            maps.push(TCMaps[map])
+            maps.push(TCPool[map])
         }
         if (modes[i] == "RM") {
-            map = Math.floor(Math.random() * RMMaps.length)
+            map = Math.floor(Math.random() * RMPool.length)
             
-            while (mapmaker.checkMap (mapnumber, map, RMMaps, i)) {
-                map = Math.floor(Math.random() * RMMaps.length)
+            while (mapmaker.checkMap (mapnumber, map, RMPool, i)) {
+                map = Math.floor(Math.random() * RMPool.length)
             }
-            maps.push(RMMaps[map])
+            maps.push(RMPool[map])
         }
         if (modes[i] == "CB") {
-            map = Math.floor(Math.random() * CBMaps.length)
+            map = Math.floor(Math.random() * CBPool.length)
             
-            while (mapmaker.checkMap (mapnumber, map, CBMaps, i)) {
-                map = Math.floor(Math.random() * CBMaps.length)
+            while (mapmaker.checkMap (mapnumber, map, CBPool, i)) {
+                map = Math.floor(Math.random() * CBPool.length)
             }
-            maps.push(CBMaps[map])
+            maps.push(CBPool[map])
         }
     }
 
@@ -159,6 +178,49 @@ class MapMaker {
         navigator.clipboard.writeText(document.getElementById("p1").innerText)
         window.alert("Copied!")
     }
+
+    mapsChoice(updated) {
+        dateTime = new Date()
+        console.log(updated)
+        if (updated == null) {
+            return "default"
+        }
+        if (updated[0] == dateTime.getUTCDay() && updated[1] + 2 >= dateTime.getUTCHours() && updated[2] + 30 >= dateTime.getUTCMinutes() && updated != null) {
+            return "selected"
+        }
+        else {
+            return "default"
+        }
+    }
+
+    processImport(data) {
+        UpSZ = data.slice(0,23)
+        UpTC = data.slice(23,46)
+        UpRM = data.slice(46,69)
+        UpCB = data.slice(69,92)
+
+        console.log(UpTC)
+
+        SZUpdate = mapmaker.evaluateImport(UpSZ)
+        console.log(SZUpdate)
+        TCUpdate = mapmaker.evaluateImport(UpTC)
+        RMUpdate = mapmaker.evaluateImport(UpRM)
+        CBUpdate = mapmaker.evaluateImport(UpCB)
+    }
+
+    evaluateImport(data) {
+        processed = []
+        for (let i = 0; i <= data.length; i++) {
+            if (data[i] == true) {
+                processed.push(GameMaps[i])
+            }
+        }
+        return processed
+    }
+
+    checkData() {
+
+    }
 }
 
 const maplistTextElement = document.querySelectorAll('[data-maplist]')
@@ -169,18 +231,35 @@ const copy = document.querySelectorAll('[data-copy]')
 const normal = document.querySelectorAll('[data-normal]')
 const grouped = document.querySelectorAll('[data-grouped]')
 //const mapNumber = document.querySelectorAll('data-map-number')
+const updated = JSON.parse(localStorage.getItem("Updated"))
+/* const SZUpdate = JSON.parse(localStorage.getItem("SZSelect"))
+const TCUpdate = JSON.parse(localStorage.getItem("TCSelect"))
+const RMUpdate = JSON.parse(localStorage.getItem("RMSelect"))
+const CBUpdate = JSON.parse(localStorage.getItem("CBSelect")) */
+const importData = JSON.parse(localStorage.getItem("Export"))
+var SZUpdate
+var TCUpdate
+var RMUpdate
+var CBUpdate
+var UpSZ
+var UpTC
+var UpRM
+var UpCB
 var mapNumber
 var models
 var rem
 var count
 var type = 0
 var check
+var mapPool
+var processed = []
+var dateTime = new Date()
 const gameModes = ["SZ", "TC", "CB", "RM"]
-var SZMaps = ["The Reef", "Mussleforge Fitness", "Humpback Pump Track", "Inkblot Art Academy", "Sturgeon Shipyard", "Manta Maria", "Snapper Canal", "MakoMart", "Shellendorf Institute", "Piranha Pit", "Wahoo World", "New Albacore Hotel", "Ancho-V Games", "Skipper Pavilion"]
-var TCMaps = ["The Reef", "Starfish Mainstage", "Inkblot Art Academy", "Sturgeon Shipyard", "Manta Maria", "MakoMart", "Ancho-V Games"]
-var RMMaps = ["The Reef", "Mussleforge Fitness", "Starfish Mainstage", "Humpback Pump Track", "Inkblot Art Academy", "Sturgeon Shipyard", "Manta Maria", "Snapper Canal", "Blackbelly Skatepark", "MakoMart", "Ancho-V Games"]
-var CBMaps = ["The Reef", "Humpback Pump Track", "Inkblot Art Academy", "Sturgeon Shipyard", "Snapper Canal", "MakoMart", "Piranha Pit", "Ancho-V Games"]
-const maps = ["The Reef", "Musselforge Fitness", "Starfish Mainstage", "Humpback Pump Track", "Inkblot Art Academy", "Sturgeon Shipyard", "Moray Towers", "Port Mackerel", "Manta Maria", "Kelp Dome", "Snapper Canal", "Blackbelly Skatepark", "Makomart", "Walleye Warehouse", "Shellendorf Institute", "Arrowana Mall", "Goby Arena", "Piranha Pit", "Camp Triggerfish", "Wahoo World", "New Albacore Hotel", "Ancho-V Games", "Skipper Pavilion"]
+const defSZMaps = ["The Reef", "Mussleforge Fitness", "Humpback Pump Track", "Inkblot Art Academy", "Sturgeon Shipyard", "Manta Maria", "Snapper Canal", "MakoMart", "Shellendorf Institute", "Piranha Pit", "Wahoo World", "New Albacore Hotel", "Ancho-V Games", "Skipper Pavilion"]
+const defTCMaps = ["The Reef", "Starfish Mainstage", "Inkblot Art Academy", "Sturgeon Shipyard", "Manta Maria", "MakoMart", "Ancho-V Games"]
+const defRMMaps = ["The Reef", "Mussleforge Fitness", "Starfish Mainstage", "Humpback Pump Track", "Inkblot Art Academy", "Sturgeon Shipyard", "Manta Maria", "Snapper Canal", "Blackbelly Skatepark", "MakoMart", "Ancho-V Games"]
+const defCBMaps = ["The Reef", "Humpback Pump Track", "Inkblot Art Academy", "Sturgeon Shipyard", "Snapper Canal", "MakoMart", "Piranha Pit", "Ancho-V Games"]
+const GameMaps = ["The Reef", "Musselforge Fitness", "Starfish Mainstage", "Humpback Pump Track", "Inkblot Art Academy", "Sturgeon Shipyard", "Moray Towers", "Port Mackerel", "Manta Maria", "Kelp Dome", "Snapper Canal", "Blackbelly Skatepark", "Makomart", "Walleye Warehouse", "Shellendorf Institute", "Arrowana Mall", "Goby Arena", "Piranha Pit", "Camp Triggerfish", "Wahoo World", "New Albacore Hotel", "Ancho-V Games", "Skipper Pavilion"]
 var maps = [""]
 var modes = [""] 
 var map = 0
@@ -196,6 +275,10 @@ generate.forEach(button => {
         mapmaker.clr(mapNumber)
         document.getElementById("p1").innerHTML = ""
         mapmaker.dataGrab()
+        mapPool = mapmaker.mapsChoice(updated)
+        if (mapPool == "selected") {
+            mapmaker.processImport(importData)
+        }
         mapmaker.generateModes(mapNumber)
         mapmaker.generateMaps(mapNumber)
         mapmaker.combine(mapNumber)
