@@ -168,6 +168,7 @@ class MapMaker {
             maplist.push((i+1) + ") " + modes[i] + " on " + maps[i] + "<br>")
         }
         this.maplistTextElement = maplist.join('')
+        console.log(this.maplistTextElement)
     }
 
     updateDisplay(mapnumber) {
@@ -194,10 +195,10 @@ class MapMaker {
     }
 
     processImport(data) {
-        UpSZ = data.slice(0,23)
-        UpTC = data.slice(23,46)
-        UpRM = data.slice(46,69)
-        UpCB = data.slice(69,92)
+        UpSZ = data.slice(0,12)
+        UpTC = data.slice(12,24)
+        UpRM = data.slice(24,36)
+        UpCB = data.slice(36,48)
 
         console.log(UpTC)
 
@@ -232,10 +233,6 @@ const normal = document.querySelectorAll('[data-normal]')
 const grouped = document.querySelectorAll('[data-grouped]')
 //const mapNumber = document.querySelectorAll('data-map-number')
 const updated = JSON.parse(localStorage.getItem("Updated"))
-/* const SZUpdate = JSON.parse(localStorage.getItem("SZSelect"))
-const TCUpdate = JSON.parse(localStorage.getItem("TCSelect"))
-const RMUpdate = JSON.parse(localStorage.getItem("RMSelect"))
-const CBUpdate = JSON.parse(localStorage.getItem("CBSelect")) */
 const importData = JSON.parse(localStorage.getItem("Export"))
 var SZUpdate
 var TCUpdate
@@ -255,11 +252,11 @@ var mapPool
 var processed = []
 var dateTime = new Date()
 const gameModes = ["SZ", "TC", "CB", "RM"]
-const defSZMaps = ["The Reef", "Mussleforge Fitness", "Humpback Pump Track", "Inkblot Art Academy", "Sturgeon Shipyard", "Manta Maria", "Snapper Canal", "MakoMart", "Shellendorf Institute", "Piranha Pit", "Wahoo World", "New Albacore Hotel", "Ancho-V Games", "Skipper Pavilion"]
-const defTCMaps = ["The Reef", "Starfish Mainstage", "Inkblot Art Academy", "Sturgeon Shipyard", "Manta Maria", "MakoMart", "Ancho-V Games"]
-const defRMMaps = ["The Reef", "Mussleforge Fitness", "Starfish Mainstage", "Humpback Pump Track", "Inkblot Art Academy", "Sturgeon Shipyard", "Manta Maria", "Snapper Canal", "Blackbelly Skatepark", "MakoMart", "Ancho-V Games"]
-const defCBMaps = ["The Reef", "Humpback Pump Track", "Inkblot Art Academy", "Sturgeon Shipyard", "Snapper Canal", "MakoMart", "Piranha Pit", "Ancho-V Games"]
-const GameMaps = ["The Reef", "Musselforge Fitness", "Starfish Mainstage", "Humpback Pump Track", "Inkblot Art Academy", "Sturgeon Shipyard", "Moray Towers", "Port Mackerel", "Manta Maria", "Kelp Dome", "Snapper Canal", "Blackbelly Skatepark", "Makomart", "Walleye Warehouse", "Shellendorf Institute", "Arrowana Mall", "Goby Arena", "Piranha Pit", "Camp Triggerfish", "Wahoo World", "New Albacore Hotel", "Ancho-V Games", "Skipper Pavilion"]
+const defSZMaps = ["Scorch Gorge", "Eeltail Alley", "Hagglefish Market", "Undertow Spillway", "Mincemeat Metalworks", "Hammerhead Bridge", "Musuem d'Alfonsino", "Mahi-Mahi Resort", "Inkblot Art Academy", "Sturgeon Shipyard", "MakoMart", "Wahoo World"]
+const defTCMaps = ["Scorch Gorge", "Eeltail Alley", "Hagglefish Market", "Undertow Spillway", "Mincemeat Metalworks", "Hammerhead Bridge", "Musuem d'Alfonsino", "Mahi-Mahi Resort", "Inkblot Art Academy", "Sturgeon Shipyard", "MakoMart", "Wahoo World"]
+const defRMMaps = ["Scorch Gorge", "Eeltail Alley", "Hagglefish Market", "Undertow Spillway", "Mincemeat Metalworks", "Hammerhead Bridge", "Musuem d'Alfonsino", "Mahi-Mahi Resort", "Inkblot Art Academy", "Sturgeon Shipyard", "MakoMart", "Wahoo World"]
+const defCBMaps = ["Scorch Gorge", "Eeltail Alley", "Hagglefish Market", "Undertow Spillway", "Mincemeat Metalworks", "Hammerhead Bridge", "Musuem d'Alfonsino", "Mahi-Mahi Resort", "Inkblot Art Academy", "Sturgeon Shipyard", "MakoMart", "Wahoo World"]
+const GameMaps = ["Scorch Gorge", "Eeltail Alley", "Hagglefish Market", "Undertow Spillway", "Mincemeat Metalworks", "Hammerhead Bridge", "Musuem d'Alfonsino", "Mahi-Mahi Resort", "Inkblot Art Academy", "Sturgeon Shipyard", "MakoMart", "Wahoo World"]
 var maps = [""]
 var modes = [""] 
 var map = 0

@@ -11,291 +11,165 @@
 </head>
 <body>
   <button data-update class="update">Update Map Pool</button>
-    <div class="mapInput">
+  <button data-matrix class='matrix'>See Map Frequency Matrix</button>
+    <div class="grid">
       <div class="SplatZones">
+        <p>Splat Zones:</p>
         <input type="checkbox" id="S1" value="S1" checked>
-        <label for="S1">The Reef</label><br>
+        <label for="S1">Scorch Gorge</label><br>
 
         <input type="checkbox" id="S2" value="S2" checked>
-        <label for="S2">Mussleforge Fitness</label><br>
+        <label for="S2">Eeltail Alley</label><br>
 
         <input type="checkbox" id="S3" value="S3" checked>
-        <label for="S3">Starfish Mainstage</label><br>
+        <label for="S3">Hagglefish Market</label><br>
 
         <input type="checkbox" id="S4" value="S4" checked>
-        <label for="S4">Humpback Pump Track</label><br>
+        <label for="S4">Undertow Spillway</label><br>
 
         <input type="checkbox" id="S5" value="S5" checked>
-        <label for="S5">Inkblot Art Academy</label><br>
+        <label for="S5">Mincemeat Metalworks</label><br>
 
         <input type="checkbox" id="S6" value="S6" checked>
-        <label for="S6">Sturgeon Shipyard</label><br>
+        <label for="S6">Hammerhead Bridge</label><br>
 
         <input type="checkbox" id="S7" value="S7" checked>
-        <label for="S7">Moray Towers</label><br>
+        <label for="S7">Museum d'Alfonsino</label><br>
 
         <input type="checkbox" id="S8" value="S8" checked>
-        <label for="S8">Port Mackerel</label><br>
+        <label for="S8">Mahi-Mahi Resort</label><br>
 
         <input type="checkbox" id="S9" value="S9" checked>
-        <label for="S9">Manta Maria</label><br>
+        <label for="S9">Inkblot Art Academy</label><br>
 
         <input type="checkbox" id="S10" value="S10" checked>
-        <label for="S10">Kelp Dome</label><br>
+        <label for="S10">Sturgeon Shipyard</label><br>
 
         <input type="checkbox" id="S11" value="S11" checked>
-        <label for="S11">Snapper Canal</label><br>
+        <label for="S11">Mako Mart</label><br>
 
         <input type="checkbox" id="S12" value="S12"checked>
-        <label for="S12">Blackbelly Skatepark</label><br>
-
-        <input type="checkbox" id="S13" value="S13" checked>
-        <label for="S13">Mako Mart</label><br>
-
-        <input type="checkbox" id="S14" value="S14" checked>
-        <label for="S14">Walleye Warehouse</label><br>
-
-        <input type="checkbox" id="S15" value="S15" checked>
-        <label for="S15">Shellendorf Institute</label><br>
-
-        <input type="checkbox" id="S16" value="S16" checked>
-        <label for="S16">Arowana Mall</label><br>
-
-        <input type="checkbox" id="S17" value="S17" checked>
-        <label for="S17">Goby Arena</label><br>
-
-        <input type="checkbox" id="S18" value="S18" checked>
-        <label for="S18">Piranha Pit</label><br>
-
-        <input type="checkbox" id="S19" value="S19" checked>
-        <label for="S19">Camp Triggerfish</label><br>
-
-        <input type="checkbox" id="S20" value="S20" checked>
-        <label for="S20">Wahoo World</label><br>
-
-        <input type="checkbox" id="S21" value="S21" checked>
-        <label for="S21">New Albacore Hotel</label><br>
-
-        <input type="checkbox" id="S22" value="S22" checked>
-        <label for="S22">Ancho-V Games</label><br>
-
-        <input type="checkbox" id="S23" value="S23" checked>
-        <label for="S23">Skipper Pavilion</label><br>
+        <label for="S12">Wahoo World</label><br>
       </div>
 
       <div class="TowerControl">
+        <p>Tower Control:</p>
         <input type="checkbox" id="T1" value="T1" checked>
-        <label for="T1">The Reef</label><br>
+        <label for="T1">Scorch Gorge</label><br>
 
         <input type="checkbox" id="T2" value="T2" checked>
-        <label for="T2">Mussleforge Fitness</label><br>
+        <label for="T2">Eeltail Alley</label><br>
 
         <input type="checkbox" id="T3" value="T3" checked>
-        <label for="T3">Starfish Mainstage</label><br>
+        <label for="T3">Hagglefish Market</label><br>
 
         <input type="checkbox" id="T4" value="T4" checked>
-        <label for="T4">Humpback Pump Track</label><br>
+        <label for="T4">Undertow Spillway</label><br>
 
         <input type="checkbox" id="T5" value="T5" checked>
-        <label for="T5">Inkblot Art Academy</label><br>
+        <label for="T5">Mincemeat Metalworks</label><br>
 
         <input type="checkbox" id="T6" value="T6" checked>
-        <label for="T6">Sturgeon Shipyard</label><br>
+        <label for="T6">Hammerhead Bridge</label><br>
 
         <input type="checkbox" id="T7" value="T7" checked>
-        <label for="T7">Moray Towers</label><br>
+        <label for="T7">Museum d'Alfonsino</label><br>
 
         <input type="checkbox" id="T8" value="T8" checked>
-        <label for="T8">Port Mackerel</label><br>
+        <label for="T8">Mahi-Mahi Resort</label><br>
 
         <input type="checkbox" id="T9" value="T9" checked>
-        <label for="T9">Manta Maria</label><br>
+        <label for="T9">Inkblot Aart Academy</label><br>
 
         <input type="checkbox" id="T10" value="T10" checked>
-        <label for="T10">Kelp Dome</label><br>
+        <label for="T10">Sturgeon Shipyard</label><br>
 
         <input type="checkbox" id="T11" value="T11" checked>
-        <label for="T11">Snapper Canal</label><br>
+        <label for="T11">Mako Mart</label><br>
 
         <input type="checkbox" id="T12" value="T12" checked>
-        <label for="T12">Blackbelly Skatepark</label><br>
-
-        <input type="checkbox" id="T13" value="T13" checked>
-        <label for="T13">Mako Mart</label><br>
-
-        <input type="checkbox" id="T14" value="T14" checked>
-        <label for="T14">Walleye Warehouse</label><br>
-
-        <input type="checkbox" id="T15" value="T15" checked>
-        <label for="T15">Shellendorf Institute</label><br>
-
-        <input type="checkbox" id="T16" value="T16" checked>
-        <label for="T16">Arowana Mall</label><br>
-
-        <input type="checkbox" id="T17" value="T17" checked>
-        <label for="T17">Goby Arena</label><br>
-
-        <input type="checkbox" id="T18" value="T18" checked>
-        <label for="T18">Piranha Pit</label><br>
-
-        <input type="checkbox" id="T19" value="T19" checked>
-        <label for="T19">Camp Triggerfish</label><br>
-
-        <input type="checkbox" id="T20" value="T20" checked>
-        <label for="T20">Wahoo World</label><br>
-
-        <input type="checkbox" id="T21" value="T21" checked>
-        <label for="T21">New Albacore Hotel</label><br>
-
-        <input type="checkbox" id="T22" value="T22" checked>
-        <label for="T22">Ancho-V Games</label><br>
-
-        <input type="checkbox" id="T23" value="T23" checked>
-        <label for="T23">Skipper Pavilion</label><br>
+        <label for="T12">Wahoo World</label><br>
       </div>
 
       <div class="Rainmaker">
+        <p>Rainmaker:</p>
         <input type="checkbox" id="R1" value="R1" checked>
-        <label for="R1">The Reef</label><br>
+        <label for="R1">Scorch Gorge</label><br>
   
         <input type="checkbox" id="R2" value="R2" checked>
-        <label for="R2">Musselforge Fitness</label><br>
+        <label for="R2">Eeltail Alley</label><br>
   
         <input type="checkbox" id="R3" value="R3" checked>
-        <label for="R3">Starfish Mainstage</label><br>
+        <label for="R3">Hagglefish Market</label><br>
   
         <input type="checkbox" id="R4" value="R4" checked>
-        <label for="R4">Humpback Pump Track</label><br>
+        <label for="R4">Undertow Spillway</label><br>
   
         <input type="checkbox" id="R5" value="R5" checked>
-        <label for="R5">Inkblot Art Academy</label><br>
+        <label for="R5">Mincemeat Metalworks</label><br>
   
         <input type="checkbox" id="R6" value="R6" checked>
-        <label for="R6">Sturgeon Shipyard</label><br>
+        <label for="R6">Hammerhead Bridge</label><br>
   
         <input type="checkbox" id="R7" value="R7" checked>
-        <label for="R7">Moray Towers</label><br>
+        <label for="R7">Musuem d'Alfonsino</label><br>
   
         <input type="checkbox" id="R8" value="R8" checked>
-        <label for="R8">Port Mackerel</label><br>
+        <label for="R8">Mahi-Mahi Resort</label><br>
   
         <input type="checkbox" id="R9" value="R9" checked>
-        <label for="R9">Manta Maria</label><br>
+        <label for="R9">Inkblot Art Academy</label><br>
   
         <input type="checkbox" id="R10" value="R10" checked>
-        <label for="R10">Kelp Dome</label><br>
+        <label for="R10">Sturgeon Shipyard</label><br>
   
         <input type="checkbox" id="R11" value="R11" checked>
-        <label for="R11">Snapper Canal</label><br>
+        <label for="R11">MakoMart</label><br>
   
         <input type="checkbox" id="R12" value="R12" checked>
-        <label for="R12">Blackbelly Skatepark</label><br>
-  
-        <input type="checkbox" id="R13" value="R13" checked>
-        <label for="R13">Mako Mart</label><br>
-  
-        <input type="checkbox" id="R14" value="R14" checked>
-        <label for="R14">Walleye Warehouse</label><br>
-  
-        <input type="checkbox" id="R15" value="R15" checked>
-        <label for="R15">Shellendorf Institute</label><br>
-  
-        <input type="checkbox" id="R16" value="R16" checked>
-        <label for="R16">Arowana Mall</label><br>
-  
-        <input type="checkbox" id="R17" value="R17" checked>
-        <label for="R17">Goby Arena</label><br>
-  
-        <input type="checkbox" id="R18" value="R18" checked>
-        <label for="R18">Piranha Pit</label><br>
-  
-        <input type="checkbox" id="R19" value="R19" checked>
-        <label for="R19">Camp Triggerfish</label><br>
-  
-        <input type="checkbox" id="R20" value="R20" checked>
-        <label for="R20">Wahoo World</label><br>
-  
-        <input type="checkbox" id="R21" value="R21" checked>
-        <label for="R21">New Albacore Hotel</label><br>
-  
-        <input type="checkbox" id="R22" value="R22" checked>
-        <label for="R22">Ancho-V Games</label><br>
-  
-        <input type="checkbox" id="R23" value="R23" checked>
-        <label for="R23">Skipper Pavilion</label><br>
+        <label for="R12">Wahoo World</label><br>
       </div> 
       
       <div class="ClamBlitz">
+        <p>Clam Blitz:</p>
         <input type="checkbox" id="C1" value="C1" checked>
-        <label for="C1">The Reef</label><br>
+        <label for="C1">Scorch Gorge</label><br>
   
         <input type="checkbox" id="C2" value="C2" checked>
-        <label for="C2">Musselforge Fitness</label><br>
+        <label for="C2">Eeltail Alley</label><br>
   
         <input type="checkbox" id="C3" value="C3" checked>
-        <label for="C3">Starfish Mainstage</label><br>
+        <label for="C3">Hagglefish Market</label><br>
   
         <input type="checkbox" id="C4" value="C4" checked>
-        <label for="C4">Humpback Pump Track</label><br>
+        <label for="C4">Undertow Spillway</label><br>
   
         <input type="checkbox" id="C5" value="C5" checked>
-        <label for="C5">Inkblot Art Academy</label><br>
+        <label for="C5">Mincemeat Metalworks</label><br>
   
         <input type="checkbox" id="C6" value="C6" checked>
-        <label for="C6">Sturgeon Shipyard</label><br>
+        <label for="C6">Hammerhead Bridge</label><br>
   
         <input type="checkbox" id="C7" value="C7" checked>
-        <label for="C7">Moray Towers</label><br>
+        <label for="C7">Musuem d'Alfonsino</label><br>
   
         <input type="checkbox" id="C8" value="C8" checked>
-        <label for="C8">Port Mackerel</label><br>
+        <label for="C8">Mahi-Mahi Resort</label><br>
   
         <input type="checkbox" id="C9" value="C9" checked>
-        <label for="C9">Manta Maria</label><br>
+        <label for="C9">Inkblot Art Academy</label><br>
   
         <input type="checkbox" id="C10" value="C10" checked>
-        <label for="C10">Kelp Dome</label><br>
+        <label for="C10">Sturgeon Shipyard</label><br>
   
         <input type="checkbox" id="C11" value="C11" checked>
-        <label for="C11">Snapper Canal</label><br>
+        <label for="C11">MakoMart</label><br>
   
         <input type="checkbox" id="C12" value="C12" checked>
-        <label for="C12">Blackbelly Skatepark</label><br>
-  
-        <input type="checkbox" id="C13" value="C13" checked>
-        <label for="C13">Mako Mart</label><br>
-  
-        <input type="checkbox" id="C14" value="C14" checked>
-        <label for="C14">Walleye Warehouse</label><br>
-  
-        <input type="checkbox" id="C15" value="C15" checked>
-        <label for="C15">Shellendorf Institute</label><br>
-  
-        <input type="checkbox" id="C16" value="C16" checked>
-        <label for="C16">Arowana Mall</label><br>
-  
-        <input type="checkbox" id="C17" value="C17" checked>
-        <label for="C17">Goby Arena</label><br>
-  
-        <input type="checkbox" id="C18" value="C18" checked>
-        <label for="C18">Piranha Pit</label><br>
-  
-        <input type="checkbox" id="C19" value="C19" checked>
-        <label for="C19">Camp Triggerfish</label><br>
-  
-        <input type="checkbox" id="C20" value="C20" checked>
-        <label for="C20">Wahoo World</label><br>
-  
-        <input type="checkbox" id="C21" value="C21" checked>
-        <label for="C21">New Albacore Hotel</label><br>
-  
-        <input type="checkbox" id="C22" value="C22" checked>
-        <label for="C22">Ancho-V Games</label><br>
-  
-        <input type="checkbox" id="C23" value="C23" checked>
-        <label for="C23">Skipper Pavilion</label><br>
+        <label for="C12">Wahoo World</label><br>
       </div>
  
     </div>
+    <p class="output" id="output">Output</p>
 </body>
 </html>
