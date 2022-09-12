@@ -13,15 +13,41 @@ body {
 }
 
 
-.mapInput {
-    display: flex;
-    
+.grid {
+    display: grid;
+    grid-template-columns: 15% 15% 15% 15%;
     justify-content: center;
-    position: relative;
-
+    align-items: center;
 }
 
 .update {
+    display: flex;
+    justify-content: center;
+    background-color: red;
+    font-size: 15px;
+    height: 45px;
+    width: 100px;
+    position: absolute;
+    border: 1px solid rgba(59,58,58, 0.4);
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.matrix {
+    display: flex;
+    justify-content: center;
+    background-color: red;
+    top: 20%;
+    font-size: 15px;
+    height: 60px;
+    width: 100px;
+    position: absolute;
+    border: 1px solid rgba(59,58,58, 0.4);
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.output {
     display: flex;
     justify-content: center;
 }
