@@ -17,43 +17,48 @@ class MapSelect {
     getSelectedMaps() {
         for (let i = 1; i < 13; i++) { 
             selectMap = document.getElementById("S" + i)
-            exportData.push(selectMap.checked)
+            mapselect.selectFreqGen(selectMap)
         }
-
         for (let i = 1; i < 13; i++) { 
             selectMap = document.getElementById("T" + i)
-            exportData.push(selectMap.checked)
+            mapselect.selectFreqGen(selectMap)
         }
 
         for (let i = 1; i < 13; i++) { 
             selectMap = document.getElementById("R" + i)
-            exportData.push(selectMap.checked)
+            mapselect.selectFreqGen(selectMap)
         }
 
         for (let i = 1; i < 13; i++) { 
             selectMap = document.getElementById("C" + i)
-            exportData.push(selectMap.checked)
-            
+            mapselect.selectFreqGen(selectMap)
+        }
+    }
+
+    selectFreqGen(map) {
+        if (map.checked == true) {
+            exportData.push(1)
+        }
+
+        else {
+            exportData.push(0)
         }
     }
 
     returnMaps() {
+        mapselect.updateStatus("Updated")
+        localStorage.setItem("Export", JSON.stringify(exportData))
+    }
+
+    updateStatus(localSpot) {
         dateCheck = new Date()
         updatedStatus[0] = dateCheck.getUTCDay()
         updatedStatus[1] = dateCheck.getUTCHours()
         updatedStatus[2] = dateCheck.getUTCMinutes()
-        localStorage.setItem("Updated", JSON.stringify(updatedStatus))
-        localStorage.setItem("Export", JSON.stringify(exportData))
+        localStorage.setItem(localSpot, JSON.stringify(updatedStatus))
     }
 
-    genFreqMatrix() {
-        GameMaps.forEach(map => {
-            freq_matrix.push([map, 1, 1, 1, 1])
-        })
-        console.table(freq_matrix)
-    }
-
-    genFreqMatrixHtml() {
+    /* genFreqMatrixHtml() {
         htmlMatrixOut[0] = "<table>"
         for (let i = 0; i < freq_matrix.length; i++) {
             htmlMatrixOut.push("<tr>")
@@ -71,8 +76,12 @@ class MapSelect {
         //document.getElementById("output").innerHTML = htmlMatrixOut;
         var test = document.getElementById("output").innerHTML
         console.log(test)
-    }
+    } */
 
+    exportFreqMatrix() {
+        mapselect.updateStatus("freq_update")
+        localStorage.setItem("Freq_Matrix", JSON.stringify(freq_matrix))
+    }
 }
 
 
@@ -105,10 +114,11 @@ update.forEach(button => {
     })
 })
 
-matrix.forEach(button => {
+/*matrix.forEach(button => {
     button.addEventListener('click', () => {
         mapselect.genFreqMatrix()
         console.table(freq_matrix)
         mapselect.genFreqMatrixHtml()
+        mapselect.exportFreqMatrix()
     })
-})
+})*/
