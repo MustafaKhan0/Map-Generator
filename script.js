@@ -30,8 +30,17 @@ class MapMaker {
         count = undefined
         check = undefined
         mapPool = undefined
+        SZT = []
+        TCT = []
+        RMT = []
+        CBT = []
+        state_us = undefined 
         this.maplistTextElement = ''
-    }
+        SZUpdate = []
+        TCUpdate = []
+        RMUpdate = []
+        CBUpdate = []
+        }
 
     generateMaps(mapnumber) {
         for (let i = 0; i < mapnumber; i++) {
@@ -39,23 +48,75 @@ class MapMaker {
         }
     }
 
-    checkMap (mapnumber, map, modeList, i) {
-        if (mapnumber >= modeList.length) {
-            check = modeList.length
+    newCheckMap(map, modeList, master, mapOption){
+        var threshold = undefined
+        if (mapOption == "selected") {
+            threshold = Math.round(master.length * 0.75)
+        }
+        else if (mapOption == "default") {
+            threshold = Math.round(modeList.length * 0.75)
         }
 
+        if (maps.length <= threshold) {
+            check = 0
+        }
+        else if (maps.length > threshold) {
+            check = maps.length - threshold
+        }
+
+        var index = maps.indexOf(modeList[map], check)
+
+        if (index != -1) {
+            return true
+        }
+        else if (index == -1) {
+            return false
+        }
+    }
+
+    // Fix problem in for loop
+    checkMap (mapnumber, map, modeList, i) {
+
+
+
+
+        
+
+
+
+
+
+        /*if (mapnumber >= modeList.length) {
+            check = modeList.length
+            console.log("Mr. One")
+        }
         else if (mapnumber < modeList.length) {
             check = mapnumber
+            console.log("Mr. Two")
         }
 
-        for (let ar = 0; ar < check; ar++) {
-            if (modeList[map] == maps[i - ar]) {
-                return true
-            }
+        if (check >= maps.length) {
+            check = 0
         }
+        else if (check < maps.length) {
+            check = maps.length - check
+            check = check - 1
+            console.log(check)
+        }
+
+        var index = maps.indexOf(modeList[map], check)
+        
+        if (index != -1) {
+            return true
+        }
+        else {
+            return false
+        }*/
 
         return false
     }
+
+    //Fix problem in while loop (commented out)
 
     pushMap(map, i, mapnumber, mapOption) {
         map = undefined
@@ -72,9 +133,41 @@ class MapMaker {
             var RMPool = defRMMaps
             var CBPool = defCBMaps
         }
+
         if (modes[i] == "SZ") {
             map = Math.floor(Math.random() * SZPool.length)
+            while (mapmaker.newCheckMap(map, SZPool, SZT, mapOption)) {
+                map = Math.floor(Math.random() * SZPool.length)
+            }
+            maps.push(SZPool[map])
+        }
+        if (modes[i] == "TC") {
+            map = Math.floor(Math.random() * TCPool.length)
+
+            while (mapmaker.newCheckMap(map, TCPool, TCT, mapOption)) {
+                map = Math.floor(Math.random() * TCPool.length)
+            }
+            maps.push(TCPool[map])
+        }
+        if (modes[i] == "RM") {
+            map = Math.floor(Math.random() * RMPool.length)
             
+            while (mapmaker.newCheckMap(map, RMPool, RMT, mapOption)) {
+                map = Math.floor(Math.random() * RMPool.length)
+            }
+            maps.push(RMPool[map])
+        }
+        if (modes[i] == "CB") {
+            map = Math.floor(Math.random() * CBPool.length)
+            while (mapmaker.newCheckMap(map, CBPool, CBT, mapOption)) {
+                map = Math.floor(Math.random() * CBPool.length)
+            }
+            maps.push(CBPool[map])
+        }
+
+/*
+        if (modes[i] == "SZ") {
+            map = Math.floor(Math.random() * SZPool.length)
             while (mapmaker.checkMap (mapnumber, map, SZPool, i)) {
                 map = Math.floor(Math.random() * SZPool.length)
             }
@@ -98,12 +191,12 @@ class MapMaker {
         }
         if (modes[i] == "CB") {
             map = Math.floor(Math.random() * CBPool.length)
-            
             while (mapmaker.checkMap (mapnumber, map, CBPool, i)) {
                 map = Math.floor(Math.random() * CBPool.length)
             }
             maps.push(CBPool[map])
         }
+        */
     }
 
     generateModes(mapnumber) {
@@ -168,7 +261,6 @@ class MapMaker {
             maplist.push((i+1) + ") " + modes[i] + " on " + maps[i] + "<br>")
         }
         this.maplistTextElement = maplist.join('')
-        console.log(this.maplistTextElement)
     }
 
     updateDisplay(mapnumber) {
@@ -181,16 +273,25 @@ class MapMaker {
     }
 
     mapsChoice(updated) {
-        dateTime = new Date()
-        console.log(updated)
         if (updated == null) {
             return "default"
         }
-        if (updated[0] == dateTime.getUTCDay() && updated[1] + 2 >= dateTime.getUTCHours() && updated[2] + 30 >= dateTime.getUTCMinutes() && updated != null) {
+        if (mapmaker.evaluateDateTime(updated) == true) {
             return "selected"
         }
         else {
             return "default"
+        }
+    }
+
+    evaluateDateTime(update) {
+        dateTime = new Date()
+        if (update[0] == dateTime.getUTCDay() && update[1] + 2 >= dateTime.getUTCHours() && update[2] + 30 >= dateTime.getUTCMinutes() && update != null) {
+            return true
+        }
+
+        else {
+            return false
         }
     }
 
@@ -200,24 +301,26 @@ class MapMaker {
         UpRM = data.slice(24,36)
         UpCB = data.slice(36,48)
 
-        console.log(UpTC)
-
-        SZUpdate = mapmaker.evaluateImport(UpSZ)
-        console.log(SZUpdate)
-        TCUpdate = mapmaker.evaluateImport(UpTC)
-        RMUpdate = mapmaker.evaluateImport(UpRM)
-        CBUpdate = mapmaker.evaluateImport(UpCB)
+        SZUpdate = mapmaker.evaluateImport(UpSZ, SZT)
+        TCUpdate = mapmaker.evaluateImport(UpTC, TCT)
+        RMUpdate = mapmaker.evaluateImport(UpRM, RMT)
+        CBUpdate = mapmaker.evaluateImport(UpCB, CBT)
     }
 
-    evaluateImport(data) {
+    evaluateImport(data, master) {
         processed = []
-        for (let i = 0; i <= data.length; i++) {
-            if (data[i] == true) {
+        for (let i = 0; i < data.length; i++) {
+            if (data[i] > 0) {
+                master.push(GameMaps[i])
+            }
+            for (let j = 0; j < data[i] * 10; j++) {
                 processed.push(GameMaps[i])
             }
         }
+        
         return processed
     }
+
 
     checkData() {
 
@@ -234,10 +337,15 @@ const grouped = document.querySelectorAll('[data-grouped]')
 //const mapNumber = document.querySelectorAll('data-map-number')
 const updated = JSON.parse(localStorage.getItem("Updated"))
 const importData = JSON.parse(localStorage.getItem("Export"))
+var test = 0
 var SZUpdate
 var TCUpdate
 var RMUpdate
 var CBUpdate
+var SZT 
+var TCT 
+var RMT 
+var CBT
 var UpSZ
 var UpTC
 var UpRM
@@ -249,6 +357,7 @@ var count
 var type = 0
 var check
 var mapPool
+var state_us
 var processed = []
 var dateTime = new Date()
 const gameModes = ["SZ", "TC", "CB", "RM"]
@@ -271,15 +380,22 @@ generate.forEach(button => {
     button.addEventListener('click', () => {
         mapmaker.clr(mapNumber)
         document.getElementById("p1").innerHTML = ""
-        mapmaker.dataGrab()
-        mapPool = mapmaker.mapsChoice(updated)
-        if (mapPool == "selected") {
-            mapmaker.processImport(importData)
+        state_us = mapmaker.dataGrab()
+        if (state_us == false) {
+            
         }
-        mapmaker.generateModes(mapNumber)
-        mapmaker.generateMaps(mapNumber)
-        mapmaker.combine(mapNumber)
-        mapmaker.updateDisplay(mapNumber)
+        else {
+            mapPool = mapmaker.mapsChoice(updated)
+            if (mapPool == "selected") {
+                mapmaker.processImport(importData)
+            }
+            mapmaker.generateModes(mapNumber)
+            mapmaker.generateMaps(mapNumber)
+            mapmaker.combine(mapNumber)
+            mapmaker.updateDisplay(mapNumber)
+            console.log(test)
+        }
+
     })
 })
 
