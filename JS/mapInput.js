@@ -35,6 +35,8 @@ class MapSelect {
         }
     }
 
+
+
     selectFreqGen(map) {
         if (map.checked == true) {
             exportData.push(1)

@@ -1,7 +1,12 @@
 /* Font */
+
+@font-face {
+    font-family: Splatoon5;
+    src: url(../Splatoon2.otf);
+}
 *, *::before *::after {
     box-sizing: border-box;
-    font-family: 'Courier New', Courier;
+    font-family: Splatoon5;
     font-weight: normal;
 }
 
@@ -9,28 +14,77 @@
 body {
     padding: 0;
     margin: 0;
-    background: linear-gradient(to right, #ba1a1a, #5f1aba)
+    background: linear-gradient(to right, #8C92AC, #bbbdc5);
 }
 
+.generator{
+    font-family: Splatoon5;
+    line-height: 25px;
+    background-color: red;
+    font-size: 15px;
+    height: 55px;
+    width: 100px;
+    position: static;
+    border: 1px solid rgba(59,58,58, 0.4);
+    border-radius: 10px;
+    cursor: pointer;
+}
 
 .grid {
+    font-family: Splatoon5;
     display: grid;
     grid-template-columns: 15% 15% 15% 15%;
     justify-content: center;
     align-items: center;
 }
 
+
+
+.grid2 {
+    display: grid;
+    grid-template-columns: 10% 10% 10% 10%;
+    justify-content: center;
+    align-items: center;
+}
+
 .update {
+    font-family: Splatoon5;
+    line-height: 25px;
     display: flex;
     justify-content: center;
-    background-color: red;
+    background-color: #1599C0;
     font-size: 15px;
-    height: 45px;
+    margin-top: 20px;
+    height: 55px;
     width: 100px;
     position: absolute;
-    border: 1px solid rgba(59,58,58, 0.4);
+    border: 1px solid rgba(59,58,58, 0.2);
     border-radius: 10px;
     cursor: pointer;
+}
+
+
+.SplatZones {
+    background-color: rgba(99,192,225,0.5);
+    padding-left: 10px;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+}
+
+.TowerControl{
+    padding-left: 10px;
+    background-color: rgba(189, 209, 216, 0.5);
+}
+
+.Rainmaker {
+    padding-left: 10px;
+    background-color: rgba(99,192,225,0.5);
+}
+.ClamBlitz{
+    padding-left: 10px;
+    background-color: rgba(189, 209, 216, 0.5);
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
 }
 
 .matrix {

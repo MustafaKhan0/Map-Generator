@@ -5,24 +5,22 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Maplist Maker</title>
-    <a href="HTML/mapInput.html">Change Map Pool</a>
+    <button data-change class="selectMaps" onclick="window.location.href='HTML/mapInput.html';">Change Map Pool</button>
     <link href="styles.css" rel="stylesheet">
     <script src="script.js" defer></script>
 </head>
 <body>
     <div class="MapMaker">
-        <div class="output">
-            <div id="p1" data-maplist class="maplist">Maplist</div>
-        </div>
-        <input id="p2" data-map-number class="mapNumber" type="number" value="9">
-        <div class="buttons">
-            <button data-generate-button class="generate">Generate</button>
-            <button data-copy class="copy">copy</button>
-        </div>
         <select class ="select" name="select" id="p3">
             <option value="0">normal</option>
             <option value="1">grouped</option>
         </select>
+        <input id="p2" data-map-number class="mapNumber" type="number" value="9">
+        <button data-generate-button class="generate">Generate</button>
+        <button data-copy class="copy">copy</button>
+        <div class="output">
+            <div id="p1" data-maplist class="maplist">Maplist</div>
+        </div>
     </div>
 </body>
 </html>
