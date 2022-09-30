@@ -28,6 +28,7 @@ body {
     border: 1px solid rgba(59,58,58, 0.4);
     border-radius: 10px;
     cursor: pointer;
+    text-align: center;
 }
 
 .MapMaker {
@@ -58,7 +59,7 @@ body {
     position: absolute;
     top: 15px;
     left: 165px; 
-    text-align: center;
+    text-align: left;
     cursor: pointer;
     border: 1px solid rgba(59,58,58, 0.4);
     border-radius: 10px;
@@ -125,12 +126,60 @@ body {
 }
 
 .maplist {
-    color: white
+    color: white;
 }
 
 
 
+.botbar {
+    font-family: Splatoon5;
+    width: 100%;
+    height: 60px;
+    line-height: 10px;
+    text-align: center;
+    position: absolute;
+    bottom: 0px;
+    background-color: rgba(99,192,225,0.5);
+    padding-bottom: 5px;
+    color: black;
+}
 
+.about {
+    color: rgba(6, 55, 83, 0.8);
+}
+
+.github {
+    color: rgba(6, 55, 83, 0.8);
+}
+
+.popup {
+    font-family: Splatoon5;
+    background-color: #1599C0;
+    border: 5px solid rgb(60, 77, 93);
+    height: 180px;
+    width: 400px;
+    border-radius: 30px;
+    position: fixed;
+    font-size: 20px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    display: none;
+}
+
+.ok {
+    width: 100px;
+    height: 35px;
+    text-align: center;
+    font-family: Splatoon5;
+    line-height: 20px;
+    font-size: 20px;
+    border-radius: 10px;
+    border-width: 1px;
+    background-color: rgba(59,58,58,0.6);
+    border-color: rgba(59,58,58,0.6);
+}
 
 
 

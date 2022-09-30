@@ -10,6 +10,12 @@
     font-weight: normal;
 }
 
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
 /* Creates gradient background */
 body {
     padding: 0;
@@ -35,17 +41,10 @@ body {
     display: grid;
     grid-template-columns: 15% 15% 15% 15%;
     justify-content: center;
-    align-items: center;
 }
 
 
 
-.grid2 {
-    display: grid;
-    grid-template-columns: 10% 10% 10% 10%;
-    justify-content: center;
-    align-items: center;
-}
 
 .update {
     font-family: Splatoon5;
@@ -87,6 +86,104 @@ body {
     border-bottom-right-radius: 15px;
 }
 
+
+.grid2 {
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    font-family: Splatoon5;
+    display: inline-grid;
+    grid-template-columns: 25% repeat(4, 10%);
+    grid-template-rows: repeat(13, 30px);
+    font-size: 18px;
+    grid-gap: 0px 40px;
+}
+
+.maps {
+    
+}
+
+.SplatZones2{
+    width: 120px;
+    height: 390px;
+}
+
+.TowerControl2{
+    width: 120px;
+}
+
+.Rainmamker2{
+    width: 120px;
+}
+
+.Clamblitz2{
+    width: 120px;
+}
+
+.map1 {
+    
+}
+
+.map {
+    margin-top: 27px;
+    margin-bottom: 27px;
+
+}
+
+.map2{
+    margin-top: 27px;
+    margin-bottom: 27px;
+    background-color: rgba(99,192,225,0.5);
+    line-height: 19px;
+}
+
+.map3 {
+    margin-top: 27px;
+    margin-bottom: 27px;
+    background-color: rgba(189, 209, 216, 0.5);
+    line-height: 19px;
+}
+
+.InputSZ {
+    width: 30px;   
+    height: 30px; 
+    font-size: 15px;
+    border-radius: 10px;
+    margin: 5px;
+    margin-left: 12px;
+    margin-right: 12px;
+}
+
+.InputTC {
+    width: 30px;   
+    height: 30px; 
+    font-size: 15px;
+    border-radius: 10px;
+    margin: 5px;
+    margin-left: 12px;
+    margin-right: 12px;
+}
+
+.InputRM {
+    width: 30px;   
+    height: 30px; 
+    font-size: 15px;
+    border-radius: 10px;
+    margin: 5px;
+    margin-left: 12px;
+    margin-right: 12px;
+}
+
+.InputCB {
+    width: 30px;   
+    height: 30px; 
+    font-size: 15px;
+    border-radius: 10px;
+    margin: 5px;
+    margin-left: 12px;
+    margin-right: 12px;
+}
+
 .matrix {
     display: flex;
     justify-content: center;
@@ -100,6 +197,7 @@ body {
     border-radius: 10px;
     cursor: pointer;
 }
+
 
 .output {
     display: flex;

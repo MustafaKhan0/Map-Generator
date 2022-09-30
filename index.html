@@ -10,7 +10,7 @@
     <script src="script.js" defer></script>
 </head>
 <body>
-    <div class="MapMaker">
+    <div class="MapMaker" id="mapmaker">
         <select class ="select" name="select" id="p3">
             <option value="0">normal</option>
             <option value="1">grouped</option>
@@ -21,6 +21,24 @@
         <div class="output">
             <div id="p1" data-maplist class="maplist">Maplist</div>
         </div>
+    </div>
+
+    <div class="botbar" data-bar>
+        <p class='links'>
+            <a href='javascript:mapmaker.popup()' class='about'>about</a> 
+            |
+            <a href="https://github.com/MustafaKhan0/Map-Generator" class='github'>github</a>
+        </p>
+        <p>Splatoon and all related copyrights/assets used on this page are the property of Nintendo.</p>
+    </div>
+    <div class="popup">
+        <p>
+            Built with HTML, CSS, and Vanilla JS
+            <br>
+            UI designed by
+            <a href="https://twitter.com/ACECTTTT">ACECT</a>
+        </p>
+        <button data-ok class='ok' onclick=mapmaker.unPopUp() >Got it!</button>
     </div>
 </body>
 </html>

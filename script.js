@@ -321,9 +321,20 @@ class MapMaker {
         return processed
     }
 
+    popup() {
+        document.querySelector(".popup").style.display = 'block'
+        document.querySelector(".MapMaker").style.filter = 'blur(8px)'
+        document.querySelector(".botbar").style.filter = 'blur(8px)'
+        document.querySelector(".MapMaker").style.webkitFilter = 'blur(8px)'
+        document.querySelector(".botbar").style.webkitFilter = 'blur(8px)'
+    }
 
-    checkData() {
-
+    unPopUp(){
+        document.querySelector(".popup").style.display = 'none'
+        document.querySelector(".MapMaker").style.filter = 'blur(0px)'
+        document.querySelector("[data-bar]").style.filter = 'blur(0px)';
+        document.querySelector(".MapMaker").style.webkitFilter = 'blur(0px)'
+        document.querySelector("[data-bar]").style.webkitFilter = 'blur(0px)';
     }
 }
 
